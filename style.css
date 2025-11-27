@@ -1,0 +1,54 @@
+/* STYLE.CSS — dipisah dari file HTML */
+:root{
+  --accent:#ff4757;
+  --muted:#6b7280;
+  --card:#ffffff;
+  --bg:#0f172a;
+}
+*{box-sizing:border-box}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  margin:0;
+  background: linear-gradient(180deg,#071028 0%, #061429 60%);
+  color:#e6eef8;
+}
+.container{max-width:1100px;margin:24px auto;padding:20px}
+header{display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo .mark{
+  width:48px;height:48px;background:var(--accent);
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:white;
+}
+nav{margin-left:auto}
+nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:26px}
+.hero .title{font-size:28px;font-weight:700;line-height:1.05}
+.hero p{color:var(--muted);margin-top:10px}
+.card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+form .row{display:flex;gap:10px;margin-bottom:10px}
+label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+input,select,textarea{
+  width:100%;padding:10px;border-radius:8px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:transparent;color:inherit;
+}
+.btn{
+  display:inline-block;padding:10px 14px;border-radius:10px;
+  background:var(--accent);color:white;border:none;cursor:pointer;font-weight:600;
+}
+.price{font-size:22px;font-weight:700;color:#fff;margin-top:8px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px}
+.service h4{margin:0 0 6px 0}
+.footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}
+  .services{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .services{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start;gap:10px}
+  nav{margin-left:0}
+}
+.badge{display:inline-block;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:999px;font-size:12px;color:var(--muted)}

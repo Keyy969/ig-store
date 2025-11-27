@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ig joki store — Layanan Joki Mobile Legends</title>
+  <style>
+    :root{
+      --accent:#ff4757;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --bg:#0f172a;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; background: linear-gradient(180deg,#071028 0%, #061429 60%); color:#e6eef8}
+    .container{max-width:1100px;margin:24px auto;padding:20px}
+
+    header{display:flex;align-items:center;gap:16px}
+    .logo{display:flex;align-items:center;gap:10px}
+    .logo .mark{width:48px;height:48px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
+    nav{margin-left:auto}
+    nav a{color:var(--muted);text-decoration:none;margin-left:14px}
+
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:26px}
+    .hero .title{font-size:28px;font-weight:700;line-height:1.05}
+    .hero p{color:var(--muted);margin-top:10px}
+    .card{background:rgba(255,255,255,0.03);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+
+    /* booking form */
+    form .row{display:flex;gap:10px;margin-bottom:10px}
+    label{font-size:13px;color:var(--muted);display:block;margin-bottom:6px}
+    input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;border:none;cursor:pointer;font-weight:600}
+    .price{font-size:22px;font-weight:700;color:#fff;margin-top:8px}
+
+    /* services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+    .service{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:10px}
+    .service h4{margin:0 0 6px 0}
+    .footer{margin-top:30px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* responsive */
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:600px){
+      .services{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:10px}
+      nav{margin-left:0}
+    }
+
+    /* badge */
+    .badge{display:inline-block;padding:6px 8px;background:rgba(255,255,255,0.04);border-radius:999px;font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">J</div>
+        <div>
+          <div style="font-weight:700">ig joki store MLBB</div>
+          <div style="font-size:12px;color:var(--muted)">Cepat — Aman — Terpercaya</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Layanan</a>
+        <a href="#booking">Booking</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1 class="title">Naik Rank cepat & aman — Joki Mobile Legends Profesional</h1>
+        <p>Kami menyediakan layanan joki Mobile Legends (MLBB) untuk push rank, pertandingan tandem, ataupun request hero tertentu. Pengawas, proteksi akun, dan bukti permainan disediakan.</p>
+
+        <div class="services" id="services">
+          <div class="service card">
+            <h4>Push Rank</h4>
+            <div class="badge">Solo / Duo</div>
+            <p style="color:var(--muted);font-size:14px;margin-top:8px">Dari rank apa ke apa. Estimasi waktu tergantung paket.</p>
+          </div>
+          <div class="service card">
+            <h4>Hero Specific</h4>
+            <div class="badge">Mekanikal Pro</div>
+            <p style="color:var(--muted);font-size:14px;margin-top:8px">Minta joki yang jago hero/role tertentu (ex: Marksman, Assassin).</p>
+          </div>
+          <div class="service card">
+            <h4>Placement / Season</h4>
+            <div class="badge">Placement</div>
+            <p style="color:var(--muted);font-size:14px;margin-top:8px">Turut membantu placement season dan reset.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;display:flex;gap:10px;align-items:center">
+          <button class="btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Booking Sekarang</button>
+          <a href="#contact" style="color:var(--muted);text-decoration:none;align-self:center">Atau hubungi kami</a>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin-top:0">Form Booking</h3>
+        <form id="bookingForm">
+          <div class="row">
+            <div style="flex:1">
+              <label>Nama Pemesan</label>
+              <input id="name" placeholder="Nama lengkap" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Server / Region</label>
+              <select id="region">
+                <option value="sea">SEA (Asia Tenggara)</option>
+                <option value="id">Indonesia</option>
+                <option value="ph">Philippines</option>
+                <option value="other">Lainnya</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <label>Pilih Paket</label>
+              <select id="package" onchange="updatePrice()">
+                <option value="basic" data-price="25000">Basic — Naik 1-2 rank (Rp 25.000)</option>
+                <option value="standard" data-price="50000">Standard — Naik 3-6 rank (Rp 50.000)</option>
+                <option value="premium" data-price="120000">Premium — Naik sampai Epic/Master (Rp 120.000)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex:1">
+              <label>Rank Saat Ini</label>
+              <select id="rankFrom">
+                <option>Warior</option>
+                <option>Elit</option>
+                <option>master</option>
+                <option>Grandmaster</option>
+                <option>epic</option>
+                <option>Legend</option>
+                <option>mytick</option>
+                <option>Mytick Honor</option>
+                <option>Mytick Glory</option>
+                <option>Mytick Immortal</option>
+              </select>
+            </div>
+            <div style="flex:1">
+              <label>Rank Tujuan (Estimasi)</label>
+              <select id="rankTo">
+                <option>Warior</option>
+                <option>Elit</option>
+                <option>master</option>
+                <option>grandmaster</option>
+                <option>epic</option>
+                <option>Legend</option>
+                <option>Mytick</option>
+                <option>Mytick Honor</option>
+                <option>Mytick Glory</option>
+                <option>Mytick Immortal</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label>Permintaan / Catatan</label>
+            <textarea id="notes" rows="3" placeholder="Contoh: Minta main Marksman, jangan share akun, ada item/skin..."></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+            <div>
+              <div style="font-size:12px;color:var(--muted)">Total perkiraan</div>
+              <div class="price" id="totalPrice">Rp 25.000</div>
+            </div>
+            <div>
+              <button type="submit" class="btn">Pesan Sekarang</button>
+            </div>
+          </div>
+
+          <div id="formMessage" style="margin-top:10px;color:#ffd1d1;display:none"></div>
+        </form>
+
+        <script>
+          function updatePrice(){
+            const sel = document.getElementById('package');
+            const price = sel.options[sel.selectedIndex].dataset.price || 0;
+            const el = document.getElementById('totalPrice');
+            el.textContent = 'Rp ' + Number(price).toLocaleString('id-ID');
+          }
+          document.getElementById('bookingForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            if(!name){
+              showMsg('Mohon isi nama pemesan.');
+              return;
+            }
+            // simple simulated submission
+            const pkg = document.getElementById('package').value;
+            const price = document.getElementById('package').selectedOptions[0].dataset.price;
+            showMsg('Pesanan diterima! Silakan cek WhatsApp/Contact untuk instruksi pembayaran. (Simulasi)');
+
+            // reset form after success (comment out if you don't want reset)
+            // this.reset(); updatePrice();
+          });
+          function showMsg(t){
+            const el = document.getElementById('formMessage');
+            el.style.display = 'block'; el.textContent = t;
+          }
+          // init
+          updatePrice();
+        </script>
+      </aside>
+    </section>
+
+    <section style="margin-top:22px" class="card">
+      <h3 style="margin-top:0">Cara Kerja</h3>
+      <ol style="color:var(--muted)">
+        <li>Pilih paket dan isi form booking.</li>
+        <li>Admin menghubungi lewat WhatsApp untuk konfirmasi & pembayaran.</li>
+        <li>Joki mulai bekerja, bukti match dan replay disediakan setelah selesai.</li>
+        <li>Garansi jika terjadi masalah (lihat syarat & ketentuan).</li>
+      </ol>
+    </section>
+
+    <section id="faq" style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div class="card">
+        <h4>FAQ</h4>
+        <p style="color:var(--muted)"><strong>Apakah aman memberikan akun?</strong><br/>Kami menyarankan metode yang paling aman: share sementara (jika setuju) atau minta joki main ikut party. Kami tidak bertanggung jawab jika pengguna melanggar kebijakan Moonton — gunakan layanan ini dengan risiko sendiri.</p>
+      </div>
+      <div class="card">
+        <h4>Kontak</h4>
+        <p style="color:var(--muted)">WhatsApp: <strong>085795751246</strong><br/>Instagram: <strong>@ig joki store</strong></p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      &copy; 2025 Joki MLBB • Dibuat dengan ❤️ — Sesuaikan data kontak & harga sebelum dipublikasikan
+    </footer>
+  </div>
+</body>
+</html>
